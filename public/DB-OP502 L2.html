@@ -1,0 +1,220 @@
+<style>
+  
+.main-content-wrapper .mar-search-header-container {
+    display: none;
+}
+  
+.newSubCategory {
+    display: none !important;
+} 
+  
+html.touchevents body .mar-header .mar-header-container .mar-plp-header-title-sort:nth-of-type(1) {
+    display: block;
+}
+  
+@media only screen and (max-width: 767px) {
+  
+.mar-header .mar-header-container .mar-plp-header-title-sort .mar-sort-holder .mar-header-sort-holder .asc-selected:nth-of-type(2) {
+    display: none;
+}
+  
+html.touchevents body .mar-header .mar-header-container .mar-plp-header-title-sort:nth-of-type(2) {
+    display: none;
+}
+  
+/*resize*/
+  
+.newSubCategory {
+    display: block !important;
+} 
+  
+.breadcrumbs .mar-plp-header-section, .visNav #catVisNavMain, .s-pagination .mar-pagination-section, .headerContainer .mar-header-container {
+     display: inline-block !important;
+}
+  
+.mar-plp-header-section, .main-content-wrapper .mar-search-header-container, #catVisNavMain, .mar-header .mar-header-container {
+    display: none;
+} 
+
+/*style*/
+  
+#asc-header-con .subCat .current-active a {
+    font-family: HelveticaNeueW01-45Ligh,Helvetica-Neue,Arial,Lucida Grande,sans-serif !important;
+  	text-transform: capitalize;
+  	letter-spacing: 0.67pt;
+}
+  
+#asc-header-con .subCat .selected-category li.current-active a {
+    font-family: Helvetica-Neue-Bold,Arial,Lucida Grande,sans-serif !important;
+    border-bottom: 1px solid #000;
+    padding-bottom: 3px;
+}
+ 
+li.current-active {
+    display: block;
+    padding-right: 0px !important;
+}
+   
+.mar-plp-filters-container {
+    padding-top: 0px !important;
+}
+  
+.mar-header .mar-header-container {
+  	border-bottom: none;
+}
+  
+.mar-header .mar-header-container .categoriesFilter .categoriesFilterBtn {
+    padding: 10px 14px;
+    font-size: 13px;
+    letter-spacing: 0.75px;
+    font-family: HelveticaNeueW01-45Ligh,Helvetica-Neue,Arial,Lucida Grande,sans-serif !important;
+}
+  
+.mar-header .newSubCategory .mar-header-container .categoriesFilter {
+    min-width: 50%;
+}
+
+.mar-header .mar-header-container .mar-plp-header-title-sort {
+    width: 50% !important;
+    float: left;
+    position: relative;
+    z-index: 10;
+}
+
+.mar-header .mar-header-container .mar-plp-header-title-sort .mar-sort-holder .mar-header-sort-holder .asc-selected button {
+    height: 34px;
+    float: unset;
+    padding: 2px 14px;
+    letter-spacing: 0.75px;
+    font-size: 13px !important;
+    font-family: HelveticaNeueW01-45Ligh,Helvetica-Neue,Arial,Lucida Grande,sans-serif !important;
+}
+
+.mar-header .mar-header-container .categoriesFilter .categoriesFilterBtn {
+    padding: 10px 14px;
+    font-size: 13px;
+    letter-spacing: 0.75px;
+    font-family: HelveticaNeueW01-45Ligh,Helvetica-Neue,Arial,Lucida Grande,sans-serif !important;
+    float: right;
+}
+  
+html.touchevents .relativeWrap select {
+    padding: 2px 14px;
+    letter-spacing: 0.75px;
+    font-size: 13px !important;
+    font-family: HelveticaNeueW01-45Ligh,Helvetica-Neue,Arial,Lucida Grande,sans-serif !important;
+}
+  
+html.touchevents body .mar-header .mar-header-container .mar-plp-header-title-sort {
+    width: 50% !important;
+    float: left;
+}
+  
+html.touchevents body .mar-header .mar-header-container .categoriesFilter .categoriesFilterBtn {
+    width: 45%;
+    float: right;
+}
+  
+.navSpotTitle {
+    margin: auto;
+    text-align: center;
+  	letter-spacing: 0.67pt;
+    padding: 12px 14px 0px 14px;
+    text-transform: lowercase;
+    font-weight: 900;
+    font-size: 21px;
+    font-family: Helvetica-Neue,Arial,Lucida Grande,sans-serif!important;
+    color: #333;
+}
+
+.selected-category a.asc-nav-category {
+    border-bottom: 1px solid #000;
+    padding-bottom: 3px;
+}
+  
+.subCat {
+    text-align: center;
+    padding: 0px 14px 5px;
+    overflow-x: visible;
+    position: relative;
+  	border-bottom: 2px solid #f0f0f0;
+}
+  
+.subCat ul {
+    white-space: nowrap;
+    overflow-x: auto;
+    padding: 20px 0px 12px;
+}
+  
+.subCat ul li {
+  	letter-spacing: 0.67pt;
+    display: inherit;
+    display: inline !important;
+    padding-right: 15px; 
+    font-size: 14px;
+}
+  
+.subCat ul li a {
+    text-transform: capitalize;
+}
+  
+</style>
+
+<script>
+
+function newSubCatL2() {
+  
+  		var navSpotTitle = document.querySelector('#asc-header-con .mar-subnav-links-column .current-active a').innerHTML;
+  		var visNav = document.querySelector('.displayMainContentFfc').innerHTML;
+  		var filters = document.querySelector('.mar-header .mar-header-container');
+        var newSubCategory = document.createElement("div");
+  
+  		newSubCategory.className = "newSubCategory";
+  		newSubCategory.innerHTML = '<div class="visNav"></div><div class="breadcrumbs"></div><div class="navSpotTitle">'+navSpotTitle+'</div><div class="subCat"></div><div class="headerContainer"></div>';
+  		
+        $(newSubCategory).insertAfter('.mar-header .mar-header-main');
+  
+  		$('.current-active:eq(0)').parent('ul').clone().appendTo('.subCat');
+  		$('.mar-plp-header-section').clone().appendTo('.breadcrumbs');
+        $('#catVisNavMain').clone().appendTo('.visNav');
+  		$('.mar-header-container').clone(true).appendTo('.headerContainer');
+  		 
+   		$('.newSubCategory .categoriesFilter .categoriesFilterBtn').text("Filters");
+        $('.newSubCategory .mar-header-container .mar-plp-header-title-sort').insertBefore('.categoriesFilter');	
+        
+  		var all = "all";
+  		var selectedCategory = document.createElement("li");
+  		selectedCategory.className = "selected-category";
+  
+    	$(selectedCategory).prependTo('.subCat ul');
+  
+        $('.subCat li.current-active').appendTo('.selected-category');
+  
+}
+
+if (document.readyState !== 'loading') {
+    try {
+      
+      	setTimeout(function() {
+        	newSubCatL2();        	
+        }, 500);
+
+     } catch(error) {
+		console.log('OP-495: '+ error);
+	 }
+  }
+else {
+document.addEventListener('DOMContentLoaded', function () {
+  	try {
+   		
+      	setTimeout(function() {
+   			newSubCatL2();
+        }, 500);
+      
+    } catch(error) {
+		console.log('OP-495: '+ error);
+	}
+  });
+}
+  
+</script>
